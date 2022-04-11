@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useFetchCarByStockNumber } from 'hooks/api-hooks';
 import { useLocalStorage } from 'hooks/common';
 import { SAVED_TEXT, SAVE_TEXT } from 'pages/Details/constants';
-
+import { toLocaleString } from 'utils/common';
 import { Shimmer } from 'components/Shimmer';
 
 const Details: React.FC = () => {
@@ -36,7 +36,7 @@ const Details: React.FC = () => {
                         isLoading ? <Shimmer height="18px"/> : (
                             <h3>
                                 <span>Stock # {data?.car.stockNumber}</span>
-                                <span> - {data?.car.mileage?.number}</span>
+                                <span> - {toLocaleString(data?.car.mileage?.number)}</span>
                                 <span> {data?.car.mileage?.unit}</span>
                                 <span> - {data?.car.fuelType}</span>
                                 <span> - {data?.car.color}</span>

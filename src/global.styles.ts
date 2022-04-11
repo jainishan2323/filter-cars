@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   h3 {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
   }
   h4, p {
     font-size: 14px;

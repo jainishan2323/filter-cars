@@ -6,11 +6,15 @@ import Pagination from 'pages/List/Pagination';
 import { CarsFilterParams } from 'api-types';
 import { Wrapper } from './styles';
 
+import { Shimmer } from 'components/Shimmer';
+
 interface FilterStateType extends CarsFilterParams{};
 
 const List: React.FC = () => {
-    const [filters, updateFilters] = useState<FilterStateType>({})
-    const { data, isLoading, isFetching } = useFetchCarsList(['cars', filters], filters, { keepPreviousData: true });
+    const [filters, updateFilters] = useState<FilterStateType>({
+        page: 1,
+    })
+    const { data, isLoading } = useFetchCarsList(['cars', filters], filters);
 
     const onFiltersUpdate = (sideFilters: CarsFilterParams) => {
         // Reset page to 0 on each filter update
@@ -33,7 +37,11 @@ const List: React.FC = () => {
             <Filters onChange={onFiltersUpdate} />
             <div>
                 <h2>Available Cars</h2>
-                <h3>Showing {Number(data?.cars.length) * Number(filters.page)} of {data?.totalCarsCount} Results</h3>
+                {
+                    isLoading ? <Shimmer width="300px" margin="8px" height="18px" /> : (
+                        <h3>Showing {Number(data?.cars.length) + 10 * (Number(filters.page) - 1)} of {data?.totalCarsCount} Results</h3>
+                    )
+                }
                 <CarsList data={data?.cars} isLoading={isLoading} />
                 <Pagination
                     currentPage={filters.page}

@@ -8,6 +8,7 @@ import {
 
 import List from 'pages/List';
 import Details from 'pages/Details';
+import NotFound from 'pages/NotFound';
 import AppLayout from 'components/AppLayout';
 
 export default function AppRoutes() {
@@ -17,6 +18,7 @@ export default function AppRoutes() {
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<List />} />
                     <Route path="/details/:stockNumber" element={<Details />} />
+                    <Route path='*' element={<NotFound />} />
                 </Route>
             </Routes>
         </Router>
