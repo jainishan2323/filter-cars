@@ -1,0 +1,2 @@
+export const SAVED_TEXT = 'You have marked this car as your favorite. Click on remove to remove this from your favorite cars';
+export const SAVE_TEXT = 'If you like this car, click the save button and add it in your collection of favorite cars';
