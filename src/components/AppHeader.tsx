@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { LOGO_URL } from 'constants/app';
 
 const HeaderWrapper = styled.header`
     padding: 0 ${props => props.theme.spacing.large};
@@ -12,7 +13,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const LogoWrapper = styled.div`
-    background-image: url('https://auto1-js-task-api--mufasa71.repl.co/images/logo.png');
+    background-image: url(${LOGO_URL});
     background-repeat: no-repeat;
     background-size: contain;
     width: 200px;
@@ -20,10 +21,12 @@ const LogoWrapper = styled.div`
 `;
 
 const LinkWrapper = styled.div`
-    margin: ${props => props.theme.spacing.small};
     display: flex;
     .header-nav {
-        padding: ${props => props.theme.spacing.small};
+        margin: ${props => props.theme.spacing.large};
+        text-decoration:  none;
+        color: ${props => props.theme.colors.text};
+        font-size: ${props => props.theme.fontSize['14px']};
     }
 `;
 
@@ -32,7 +35,7 @@ const AppHeader = () => (
         <Link to={'/'}><LogoWrapper /></Link>
         <LinkWrapper>
             <Link className='header-nav' to="/unknown">Purchase</Link>
-            <Link className='header-nav' to="/unknown">My Order</Link>
+            <Link className='header-nav' to="/unknown">My Orders</Link>
             <Link className='header-nav' to="/unknown">Sell</Link>
         </LinkWrapper>
     </HeaderWrapper>
