@@ -1,7 +1,7 @@
 
 # Filter Application using React
 
- This application is built on React using [create-react-app](https://create-react-app.dev/)
+ This application is built on React and Typescript using [create-react-app](https://create-react-app.dev/)
 
 
 ## Getting Started 🚀
